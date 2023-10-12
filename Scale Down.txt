@@ -1,0 +1,24 @@
+private static function ScaleDownTextField(Input:String, Field:TextField, initialFieldWidth:int, initialFieldX:int, align:int):void
+{
+	var wi:int = initialFieldWidth;
+	Field.autoSize = TextFieldAutoSize.LEFT;
+	Field.scaleX = 1;
+	Field.text = Input;
+	if (wi < Field.width)
+	{
+		Field.scaleX = wi / Field.width;
+	}
+
+	if (align == 0)  //left
+	{
+		Field.x = initialFieldX;
+	}
+	if (align == 1)  //center
+	{
+		Field.x = initialFieldX + (initialFieldWidth - Field.width) / 2;
+	}
+	if (align == 2)  //right
+	{
+		Field.x = initialFieldX + initialFieldWidth - Field.width;
+	}
+}
